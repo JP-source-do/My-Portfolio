@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Paul Nicolasora - Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #1a202c;
+            background: #f7fafc;
+            padding: 20px;
+        }
+
+        .resume-container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            background: linear-gradient(135deg, #1a365d 0%, #2d3748 50%, #4a5568 100%);
+            color: white;
+            padding: 40px 30px;
+            position: relative;
+        }
+
+        .sidebar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.2) 0%, transparent 50%);
+        }
+
+        .profile-section {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px auto;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            object-fit: cover;
+            display: block;
+        }
+
+        .name {
+            font-size: 2.2em;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .title {
+            font-size: 1.1em;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .contact-section {
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+        }
+
+        .contact-item i {
+            width: 20px;
+            margin-right: 15px;
+            text-align: center;
+            opacity: 0.8;
+        }
+
+        .portfolio-link {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-weight: 500;
+            margin-top: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .portfolio-link:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .sidebar-section {
+            position: relative;
+            z-index: 2;
+            margin-bottom: 35px;
+        }
+
+        .sidebar-title {
+            font-size: 1.2em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .sidebar-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        .skill-item {
+            margin-bottom: 12px;
+        }
+
+        .skill-name {
+            font-size: 0.9em;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .main-content {
+            padding: 40px;
+        }
+
+        .main-section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #1a365d;
+            margin-bottom: 25px;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+
+        .summary-text {
+            font-size: 1.05em;
+            line-height: 1.8;
+            color: #4a5568;
+            text-align: justify;
+            background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .experience-item {
+            margin-bottom: 35px;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: #667eea;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.2);
+        }
+
+        .job-header {
+            margin-bottom: 15px;
+        }
+
+        .job-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #1a365d;
+            margin-bottom: 5px;
+        }
+
+        .company {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .duration {
+            font-size: 0.95em;
+            color: #718096;
+            font-weight: 500;
+        }
+
+        .description ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .description li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        .description li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .experience-item:hover::before {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transform: scale(1.2);
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-section:hover .sidebar-title::after {
+            width: 60px;
+            transition: width 0.3s ease;
+        }
+
+        .project-title {
+            font-size: 1.15em;
+            font-weight: 700;
+            color: #1a365d;
+            margin-bottom: 12px;
+        }
+
+        .project-description {
+            color: #4a5568;
+            line-height: 1.7;
+            font-size: 0.95em;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            min-height: 100vh;
+        }
+
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .resume-container {
+                box-shadow: none;
+                max-width: none;
+            }
+
+            .portfolio-link:hover {
+                transform: none;
+            }
+
+            .project-card:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <div class="two-column">
+            <aside class="sidebar">
+                <div class="profile-section">
+                    <img src="https://media.licdn.com/dms/image/v2/D4E03AQERc9wWQnAJIw/profile-displayphoto-scale_400_400/B4EZkDYFWZGcAk-/0/1756698270923?e=1761782400&v=beta&t=N-oxWeT8gOURzhEFIsMlYa8bWGjijC3OvmG5I27BIPE" alt="John Paul Nicolasora" class="profile-image">
+                    <h1 class="name">John Paul Nicolasora</h1>
+                    <p class="title">Operations Leader & Automation Specialist</p>
+                </div>
+
+                <div class="contact-section">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>freemanscrib803@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>09639108380</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Mindoro, Philippines</span>
+                    </div>
+                    <a href="https://jp-source-do.github.io/Portfolio" class="portfolio-link">
+                        <i class="fas fa-globe"></i>
+                        View Portfolio
+                    </a>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Technical Skills</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">Programming & Development</div>
+                        <div style="font-size: 0.85em; opacity: 0.9;">Python, JavaScript, HTML5, CSS3</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">AI & Machine Learning</div>
+                        <div style="font-size: 0.85em; opacity: 0.9;">OpenAI, ChatGPT, Scikit-Learn, Gradient Boosting, OpenRouter API</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Data & Analytics</div>
+                        <div style="font-size: 0.85em; opacity: 0.9;">Streamlit, Plotly, Anaconda, Jupyter, Google Sheets</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Automation Platforms</div>
+                        <div style="font-size: 0.85em; opacity: 0.9;">Make.com, n8n, Zapier, Google Forms</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Business Tools</div>
+                        <div style="font-size: 0.85em; opacity: 0.9;">Notion, Zendesk, Jira, Slack, Asana</div>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Core Competencies</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">Business Skills</div>
+                        <div style="font-size: 0.85em; opacity: 0.9;">Data Analysis, Workflow Optimization, Stakeholder Communication</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Leadership</div>
+                        <div style="font-size: 0.85em; opacity: 0.9;">Team Coaching, Performance Management, Quality Assurance</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Customer Experience</div>
+                        <div style="font-size: 0.85em; opacity: 0.9;">Support & Retention, Process Improvement, Service Recovery</div>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Education</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">Rizal Technological University</div>
+                        <div style="font-size: 0.85em; opacity: 0.9;">Mechanical Engineering Technology</div>
+                    </div>
+                </div>
+            </aside>
+
+            <main class="main-content">
+                <section class="main-section">
+                    <h2 class="section-title">Summary</h2>
+                    <div class="summary-text">
+                        As a seasoned Operations Leader with nearly a decade of experience, I excel at bridging the gap between business challenges and technical solutions. I specialize in identifying workflow bottlenecks and translating them into high-impact, AI-driven automation frameworks that improve efficiency and scale customer experience. My expertise is proven by a track record of driving tangible results, from leading a team that improved customer satisfaction by 15% to building and deploying a multi-step automation using Make.com and OpenAI that reduced support response times from hours to minutes. My portfolio also includes a sales forecasting dashboard built with Anaconda, demonstrating a core capability in leveraging AI and data to solve complex business problems.
+                    </div>
+                </section>
+
+                <section class="main-section">
+                    <h2 class="section-title">Experience</h2>
+
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <h3 class="job-title">Automation Team Lead</h3>
+                            <p class="company">Delight Dynamics (formerly KNAK AI Solutions)</p>
+                            <p class="duration">March 2025 – July 2025</p>
+                        </div>
+                        <div class="description">
+                            <ul>
+                                <li>Decreased initial response time to minutes, down from hours, by developing and implementing an AI-powered triage framework in Zendesk that used custom automations and macros to categorize and route support requests.</li>
+                                <li>Improved customer satisfaction by 10% by creating an end-to-end framework for phone support, ensuring that clients with immediate needs received prompt attention from the right team members.</li>
+                                <li>Architected a scalable documentation system using Notion, leveraging ChatGPT to inform and standardize internal processes and frameworks for team-wide coordination.</li>
+                                <li>Partnered with cross-functional teams to analyze existing workflows, identifying process bottlenecks and leading the development of targeted, scalable automation solutions.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <h3 class="job-title">Team Lead</h3>
+                            <p class="company">Global Payments</p>
+                            <p class="duration">February 2020 – March 2025</p>
+                        </div>
+                        <div class="description">
+                            <ul>
+                                <li>Drove a 15% increase in customer satisfaction (CSAT), from 70% to 85%, by implementing a proactive, real-time coaching strategy focused on immediate feedback and targeted root cause analysis.</li>
+                                <li>Coordinated with cross-functional partners and executed a comprehensive migration strategy, successfully integrating new lines of business with zero disruption to service continuity.</li>
+                                <li>Partnered with business leaders to conduct weekly performance reviews, translating data into actionable insights and strategic recommendations that drove a measurable impact on key business metrics.</li>
+                                <li>Analyzed team performance data to identify process bottlenecks and implement targeted improvements, consistently driving key metrics and ensuring alignment between team member capabilities and business goals.</li>
+                                <li>Enhanced customer satisfaction and service delivery by conducting targeted quality audits, using insights to drive continuous improvement in agent performance.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <h3 class="job-title">Customer Service Representative</h3>
+                            <p class="company">Inspiro</p>
+                            <p class="duration">July 2019 – January 2020</p>
+                        </div>
+                        <div class="description">
+                            <ul>
+                                <li>Drove service recovery by expertly resolving customer complaints and facilitating product returns, ensuring a positive customer experience and upholding brand loyalty.</li>
+                                <li>Elevated customer satisfaction and contributed to sales objectives by guiding informed purchase decisions and successfully overcoming objections through persuasive communication.</li>
+                                <li>Ensured seamless transactional integrity by maintaining accurate records and following established protocols.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <h3 class="job-title">Technical Support Specialist</h3>
+                            <p class="company">Transcom</p>
+                            <p class="duration">January 2019 – June 2019</p>
+                        </div>
+                        <div class="description">
+                            <ul>
+                                <li>Resolved a wide range of technical issues for global customers, ensuring minimal downtime and improving user satisfaction through expert troubleshooting and issue resolution.</li>
+                                <li>Translated complex technical concepts into clear, simple language for non-technical users, contributing to enhanced first-call resolution and a better overall customer experience.</li>
+                                <li>Documented and updated technical support best practices in a shared knowledge base, enhancing team efficiency and enabling the seamless resolution of recurring issues.</li>
+                                <li>Identified and cultivated upsell opportunities by aligning product features with customer needs, contributing to revenue growth while ensuring customer satisfaction.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <h3 class="job-title">Customer Service Representative</h3>
+                            <p class="company">Concentrix</p>
+                            <p class="duration">November 2017 – December 2018</p>
+                        </div>
+                        <div class="description">
+                            <ul>
+                                <li>Managed frontline customer support for a global rental service, resolving inquiries related to billing and returns with professionalism and empathy to ensure a positive customer experience.</li>
+                                <li>Troubleshot technical issues with kiosks and systems, providing expert guidance to customers to restore access and functionality, and reduce repeat service incidents.</li>
+                                <li>Documented recurring customer concerns and technical issues, providing critical insights that informed process improvements and reduced repeat incidents.</li>
+                                <li>Drove customer loyalty and retention by delivering personalized service, using appeasements to resolve billing disputes and ensure long-term satisfaction.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="main-section">
+                    <h2 class="section-title">Key Projects</h2>
+
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <h3 class="project-title">Marketing AI Automation</h3>
+                            <p class="project-description">
+                                🚀 AI-powered marketing automation platform with real-time analytics, campaign optimization, and intelligent insights for digital advertising. Built with Python and machine learning technologies to optimize marketing workflows and provide actionable data-driven insights for digital campaigns.
+                            </p>
+                        </div>
+
+                        <div class="project-card">
+                            <h3 class="project-title">AI-Powered E-commerce Sales Forecasting Dashboard</h3>
+                            <p class="project-description">
+                                Interactive dashboard built with Streamlit and Python that uses a Gradient Boosting model to forecast future e-commerce sales. Enables businesses to make data-driven decisions through accurate sales predictions and comprehensive analytics visualization.
+                            </p>
+                        </div>
+
+                        <div class="project-card">
+                            <h3 class="project-title">AI-Powered Support Ticket Automation</h3>
+                            <p class="project-description">
+                                A no-code automation workflow that receives customer support requests via Google Form, uses AI to categorize tickets into 'Sales Inquiry', 'Technical Support', or 'Billing Question', and automatically routes tickets to appropriate departments via email. Built with Make.com and OpenRouter API.
+                            </p>
+                        </div>
+
+                        <div class="project-card">
+                            <h3 class="project-title">AI Customer Support Agent</h3>
+                            <p class="project-description">
+                                AI-powered customer support automation workflow built with n8n. Features intelligent chatbot capabilities, workflow automation, and seamless integration with customer service platforms to provide automated, context-aware customer support solutions.
+                            </p>
+                        </div>
+
+                        <div class="project-card">
+                            <h3 class="project-title">Notion Client Automation</h3>
+                            <p class="project-description">
+                                Notion automation system with Make.com integration for client project management and automated invoice processing. Features a 4-database architecture with intelligent workflows for project management, database design, and business automation using Notion API.
+                            </p>
+                        </div>
+
+                        <div class="project-card">
+                            <h3 class="project-title">Professional Portfolio Website</h3>
+                            <p class="project-description">
+                                Modern, responsive portfolio website showcasing professional experience and projects. Built with HTML5, CSS3, and JavaScript featuring glassmorphism design effects, interactive elements, and optimized user experience across all devices. Deployed on GitHub Pages with live project demonstrations.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
