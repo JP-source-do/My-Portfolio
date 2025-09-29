@@ -224,17 +224,36 @@ contactForm.addEventListener('submit', (e) => {
     const subject = formData.get('subject');
     const message = formData.get('message');
 
+    // Validate form data
+    if (!name || !email || !subject || !message) {
+        showNotification('Please fill in all fields', 'error');
+        return;
+    }
+
     // Create mailto link
     const mailtoLink = `mailto:freemanscrib803@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
 
-    // Open email client
-    window.open(mailtoLink);
+    // Try to open email client
+    try {
+        window.location.href = mailtoLink;
 
-    // Reset form
-    contactForm.reset();
+        // Reset form after a short delay
+        setTimeout(() => {
+            contactForm.reset();
+        }, 1000);
 
-    // Show success message
-    showNotification('Message prepared! Your email client should open shortly.');
+        // Show success message
+        showNotification('Opening your email client...', 'success');
+    } catch (error) {
+        // Fallback: copy email details to clipboard
+        const emailContent = `To: freemanscrib803@gmail.com\nSubject: ${subject}\n\nName: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+
+        navigator.clipboard.writeText(emailContent).then(() => {
+            showNotification('Email details copied to clipboard!', 'success');
+        }).catch(() => {
+            showNotification('Please email freemanscrib803@gmail.com manually', 'info');
+        });
+    }
 });
 
 // Notification system
@@ -243,11 +262,17 @@ function showNotification(message, type = 'success') {
     notification.className = `notification ${type}`;
     notification.textContent = message;
 
+    const backgrounds = {
+        success: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        error: 'linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%)',
+        info: 'linear-gradient(135deg, #74b9ff 0%, #0984e3 100%)'
+    };
+
     notification.style.cssText = `
         position: fixed;
         top: 20px;
         right: 20px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: ${backgrounds[type] || backgrounds.success};
         color: white;
         padding: 1rem 2rem;
         border-radius: 10px;
