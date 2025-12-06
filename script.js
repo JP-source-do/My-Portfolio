@@ -480,6 +480,37 @@ document.addEventListener('DOMContentLoaded', () => {
     lazyElements.forEach(el => lazyObserver.observe(el));
 });
 
+// Profile Image Loading Optimization
+document.addEventListener('DOMContentLoaded', () => {
+    const profilePhoto = document.querySelector('.profile-photo');
+
+    if (profilePhoto) {
+        // Add loading attribute for performance
+        profilePhoto.setAttribute('loading', 'eager');
+        profilePhoto.setAttribute('decoding', 'async');
+
+        // Handle image load success
+        profilePhoto.addEventListener('load', () => {
+            console.log('✅ Profile image loaded successfully');
+            profilePhoto.style.opacity = '1';
+        });
+
+        // Handle image load error with fallback
+        profilePhoto.addEventListener('error', () => {
+            console.error('❌ Profile image failed to load');
+            // Retry with cache-busting parameter
+            const currentSrc = profilePhoto.src;
+            if (!currentSrc.includes('&retry=1')) {
+                profilePhoto.src = currentSrc + '&retry=1';
+            }
+        });
+
+        // Preload the image
+        const img = new Image();
+        img.src = profilePhoto.src;
+    }
+});
+
 console.log('🚀 Modern Portfolio Loaded Successfully!');
 console.log('✨ Welcome to John Paul Nicolasora\'s AI Automation Portfolio');
 console.log('🤖 Built with cutting-edge web technologies');
