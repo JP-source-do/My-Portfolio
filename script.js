@@ -511,6 +511,99 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// Workflows Filtering and Search
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('workflowSearch');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const workflowCards = document.querySelectorAll('.workflow-card');
+
+    let currentFilter = 'all';
+
+    // Filter functionality
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all buttons
+            filterButtons.forEach(b => b.classList.remove('active'));
+            // Add active class to clicked button
+            btn.classList.add('active');
+            // Update current filter
+            currentFilter = btn.getAttribute('data-filter');
+            // Apply filtering
+            applyFilters();
+        });
+    });
+
+    // Search functionality
+    searchInput.addEventListener('input', (e) => {
+        applyFilters();
+    });
+
+    function applyFilters() {
+        const searchTerm = searchInput.value.toLowerCase();
+
+        workflowCards.forEach(card => {
+            const category = card.getAttribute('data-category');
+            const cardText = card.innerText.toLowerCase();
+
+            // Check if card matches filter
+            const matchesFilter = currentFilter === 'all' || category === currentFilter;
+            // Check if card matches search term
+            const matchesSearch = searchTerm === '' || cardText.includes(searchTerm);
+
+            // Show/hide card based on filters and search
+            if (matchesFilter && matchesSearch) {
+                card.classList.remove('hidden');
+                // Animate card appearance
+                card.style.animation = 'fadeInUp 0.5s ease-out';
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+    }
+
+    // Workflow detail buttons
+    const detailButtons = document.querySelectorAll('.btn-detail');
+    detailButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const workflow = btn.getAttribute('data-workflow');
+            // Smooth scroll to contact for now
+            // Can be extended with modal in future
+            const contactSection = document.querySelector('#contact');
+            if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+
+    // Add fade-in animation to workflow cards on scroll
+    const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && entry.target.classList.contains('workflow-card')) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                cardObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    workflowCards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'all 0.6s ease-out';
+        cardObserver.observe(card);
+    });
+
+    // Scroll to top function
+    window.scrollToTop = function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
+});
+
 console.log('🚀 Modern Portfolio Loaded Successfully!');
 console.log('✨ Welcome to John Paul Nicolasora\'s AI Automation Portfolio');
 console.log('🤖 Built with cutting-edge web technologies');
+console.log('🔧 n8n Workflows Section Enabled');

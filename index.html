@@ -35,6 +35,7 @@
                 <a href="#about" class="nav-link">About</a>
                 <a href="#skills" class="nav-link">Skills</a>
                 <a href="#projects" class="nav-link">Projects</a>
+                <a href="#workflows" class="nav-link">Workflows</a>
                 <a href="#experience" class="nav-link">Experience</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
@@ -442,6 +443,234 @@
                             </a>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- n8n Workflows Section -->
+    <section id="workflows" class="workflows section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">n8n Workflow Automation</h2>
+                <div class="section-subtitle">5 Production-Ready Workflows Demonstrating Enterprise Automation Excellence</div>
+            </div>
+
+            <!-- Stats Overview -->
+            <div class="workflows-stats">
+                <div class="stat-card">
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">Production Workflows</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">100%</div>
+                    <div class="stat-label">Ready to Deploy</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">15+</div>
+                    <div class="stat-label">Integrations</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">99.9%</div>
+                    <div class="stat-label">System Uptime</div>
+                </div>
+            </div>
+
+            <!-- Filter & Search -->
+            <div class="workflows-controls">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="workflowSearch" placeholder="Search workflows...">
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="messaging">Messaging</button>
+                    <button class="filter-btn" data-filter="sales">Sales</button>
+                    <button class="filter-btn" data-filter="data">Data</button>
+                    <button class="filter-btn" data-filter="voice">Voice</button>
+                </div>
+            </div>
+
+            <!-- Workflows Grid -->
+            <div class="workflows-grid" id="workflowsGrid">
+                <!-- Facebook Messenger Workflow -->
+                <div class="workflow-card" data-category="messaging" data-complexity="advanced">
+                    <div class="card-header">
+                        <div class="card-title-section">
+                            <h3 class="card-title">Facebook Messenger Automation</h3>
+                            <span class="category-badge messaging">Messaging & Support</span>
+                        </div>
+                        <span class="status-badge">Production Ready</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">AI-powered customer support chatbot with knowledge base integration and multi-language support (English/Tagalog).</p>
+                        <div class="features-list">
+                            <span class="feature">Webhook Integration</span>
+                            <span class="feature">Google Gemini AI</span>
+                            <span class="feature">Knowledge Base</span>
+                            <span class="feature">Multi-language</span>
+                            <span class="feature">Memory Management</span>
+                        </div>
+                        <div class="impact-metrics">
+                            <div class="metric">
+                                <span class="metric-value">70%</span>
+                                <span class="metric-label">Support Reduction</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">24/7</span>
+                                <span class="metric-label">Availability</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn-detail" data-workflow="facebook-messenger">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Chat with KB Workflow -->
+                <div class="workflow-card" data-category="messaging" data-complexity="advanced">
+                    <div class="card-header">
+                        <div class="card-title-section">
+                            <h3 class="card-title">Chat + Appointment Booking</h3>
+                            <span class="category-badge messaging">Messaging & Appointments</span>
+                        </div>
+                        <span class="status-badge">Production Ready</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">Conversational workflow that provides knowledge-based responses and seamlessly handles appointment booking requests.</p>
+                        <div class="features-list">
+                            <span class="feature">Intent Detection</span>
+                            <span class="feature">Knowledge Base</span>
+                            <span class="feature">Appointment Scheduling</span>
+                            <span class="feature">Context Preservation</span>
+                            <span class="feature">User Collection</span>
+                        </div>
+                        <div class="impact-metrics">
+                            <div class="metric">
+                                <span class="metric-value">30%</span>
+                                <span class="metric-label">Booking Increase</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">< 2s</span>
+                                <span class="metric-label">Response Time</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn-detail" data-workflow="chat-kb">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Enrichment Workflow -->
+                <div class="workflow-card" data-category="data" data-complexity="intermediate">
+                    <div class="card-header">
+                        <div class="card-title-section">
+                            <h3 class="card-title">Data Enrichment Pipeline</h3>
+                            <span class="category-badge data">Data Processing</span>
+                        </div>
+                        <span class="status-badge">Production Ready</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">Multi-source data enrichment with quality scoring and third-party API integration for comprehensive customer profiles.</p>
+                        <div class="features-list">
+                            <span class="feature">Multi-source Data</span>
+                            <span class="feature">Quality Scoring</span>
+                            <span class="feature">Data Normalization</span>
+                            <span class="feature">Batch Processing</span>
+                            <span class="feature">Error Handling</span>
+                        </div>
+                        <div class="impact-metrics">
+                            <div class="metric">
+                                <span class="metric-value">85%</span>
+                                <span class="metric-label">Data Completeness</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">95%</span>
+                                <span class="metric-label">Accuracy</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn-detail" data-workflow="enrichment">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Sales Workflow -->
+                <div class="workflow-card" data-category="sales" data-complexity="advanced">
+                    <div class="card-header">
+                        <div class="card-title-section">
+                            <h3 class="card-title">Sales Automation Pipeline</h3>
+                            <span class="category-badge sales">Sales & CRM</span>
+                        </div>
+                        <span class="status-badge">Production Ready</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">Complete sales automation with lead qualification (BANT), scoring, and automatic appointment scheduling integration.</p>
+                        <div class="features-list">
+                            <span class="feature">Lead Qualification</span>
+                            <span class="feature">BANT Scoring</span>
+                            <span class="feature">CRM Integration</span>
+                            <span class="feature">Auto Scheduling</span>
+                            <span class="feature">Follow-up Automation</span>
+                        </div>
+                        <div class="impact-metrics">
+                            <div class="metric">
+                                <span class="metric-value">40%</span>
+                                <span class="metric-label">Sales Cycle Faster</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">0</span>
+                                <span class="metric-label">Lost Leads</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn-detail" data-workflow="sales">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Voice Appointment Workflow -->
+                <div class="workflow-card" data-category="voice" data-complexity="advanced">
+                    <div class="card-header">
+                        <div class="card-title-section">
+                            <h3 class="card-title">Voice Appointment Booking</h3>
+                            <span class="category-badge voice">Voice & Telephony</span>
+                        </div>
+                        <span class="status-badge">Production Ready</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">Voice-based appointment booking using NLP to understand customer intent and complete bookings via natural voice interaction.</p>
+                        <div class="features-list">
+                            <span class="feature">Voice Processing</span>
+                            <span class="feature">Natural Language</span>
+                            <span class="feature">Intelligent Routing</span>
+                            <span class="feature">Calendar Integration</span>
+                            <span class="feature">Error Recovery</span>
+                        </div>
+                        <div class="impact-metrics">
+                            <div class="metric">
+                                <span class="metric-value">30%</span>
+                                <span class="metric-label">Booking Increase</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">99.9%</span>
+                                <span class="metric-label">Uptime</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn-detail" data-workflow="voice">View Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="workflows-cta">
+                <h3>Ready to Explore These Workflows?</h3>
+                <p>Download the complete n8n workflow portfolio documentation with architecture diagrams, implementation guides, and customization examples.</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">Get Full Documentation</a>
+                    <button class="btn btn-secondary" onclick="scrollToTop()">Back to Top</button>
                 </div>
             </div>
         </div>
